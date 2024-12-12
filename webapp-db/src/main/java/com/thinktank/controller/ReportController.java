@@ -1,5 +1,5 @@
 package com.thinktank.controller;
 
-public class ReportController {
+public class ReportController extends RenderServlet{
     
 }
