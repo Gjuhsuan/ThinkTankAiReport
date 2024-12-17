@@ -5,6 +5,7 @@ import com.thinktank.db.vo.Document;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+
 public class DocumentController {
 
     private DocumentService documentService;
@@ -16,7 +17,7 @@ public class DocumentController {
 
     // 根据文档编号定位到文档详情页
     public void getDocumentDetails(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        // 1. 从请求中获取文档编号
+        
         String documentIdParam = request.getParameter("documentId");
 
         if (documentIdParam == null || documentIdParam.isEmpty()) {
@@ -29,7 +30,7 @@ public class DocumentController {
             int documentId = Integer.parseInt(documentIdParam);
 
             // 2. 调用业务层获取文档详情
-            Document document = documentService.getDocumentById(documentId);
+            Document document = documentService.getDocumentById(Integer.valueOf(documentId));
 
             if (document == null) {
                 // 文档不存在，返回错误信息
@@ -39,11 +40,10 @@ public class DocumentController {
 
             // 3. 将文档详情存入 request 属性
             request.setAttribute("document", document);
-
             // 4. 转发到文档详情页
             request.getRequestDispatcher("/WEB-INF/views/documentDetails.jsp").forward(request, response);
 
-        } catch (NumberFormatException e) {
+        } catch (java.lang.NumberFormatException e) {
             // 如果文档编号格式错误，返回错误信息
             response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Invalid documentId format");
         } catch (Exception e) {

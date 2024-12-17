@@ -1,15 +1,17 @@
 package com.thinktank.service;
 
-import com.thinktank.db.dao.proxy.DocumentDaoProxy;
+import com.thinktank.db.dao.proxy.DocumentDao;
+import com.thinktank.db.factory.DaoFactory;
 import com.thinktank.db.vo.Document;
+
 public class DocumentService {
-    private DocumentDaoProxy documentDaoProxy;
+    private DocumentDao documentDaoProxy;
 
     public DocumentService() {
-        documentDaoProxy = new DocumentDaoProxy(); // TODO: 工厂类
+        documentDaoProxy = DaoFactory.createDocumentDao();
     }
 
-    public Document getDocumentById(int id) {
-        return documentDaoProxy.getDocumentById(id);
+    public Document getDocumentById(Integer id) {
+        return documentDaoProxy.findById(id);
     }
 }
