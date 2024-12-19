@@ -1,8 +1,8 @@
 package com.thinktank.controller;
 
-import com.thinktank.service.DocumentService;//What can I say！
+import com.thinktank.service.DocumentService;//Mamba out
 import com.thinktank.db.vo.Document;
-import javax.servlet.http.HttpServletRequest;//满
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
