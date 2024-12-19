@@ -1,6 +1,6 @@
 package com.thinktank.controller;
 
-import com.thinktank.service.DocumentService;
+import com.thinktank.service.DocumentService;//What can I say！
 import com.thinktank.db.vo.Document;
 import javax.servlet.http.HttpServletRequest;//满
 import javax.servlet.http.HttpServletResponse;
